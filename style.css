@@ -1,0 +1,644 @@
+/* Variables & Reset */
+:root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --navy: #0a192f;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-dark: #111827;
+    --border: #e5e7eb;
+    --container-width: 1100px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+
+.text-white {
+    color: white;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+/* Typography */
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h2.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Placeholders */
+.image-placeholder {
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #888;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Atur ukuran dan bentuk kotak pembungkus foto */
+.hero-image .image-placeholder.main-photo {
+    width: 320px;
+    /* Atur lebar kotak sesuai selera, misal: 300px - 380px */
+    height: 380px;
+    /* Atur tinggi kotak foto */
+    max-width: 100%;
+    /* Responsif di layar kecil / HP */
+    overflow: hidden;
+    /* Memotong bagian foto yang melebihi batas kotak */
+    border-radius: 16px;
+    /* Sudut membulat modern */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan halus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pastikan gambar mengisi penuh kotak secara proporsional (tidak gepeng) */
+.hero-image .image-placeholder.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Menyesuaikan foto agar pas & rapi tanpa distorsi */
+    object-position: center;
+    /* Fokus di tengah (bisa diganti 'top' jika ingin fokus ke wajah) */
+    display: block;
+}
+
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+    margin: 5px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: #eee;
+    color: var(--navy);
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-text {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero */
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.label {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #e0e7ff;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+.hero-content .sub-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.main-photo {
+    width: 100%;
+    aspect-ratio: 1/1.1;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 20px;
+    left: -20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.floating-card p {
+    margin: 5px 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--navy);
+    border-left: 3px solid var(--primary);
+    padding-left: 10px;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.skill-category {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: var(--navy);
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tags span {
+    background: var(--bg-light);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    border: 1px solid var(--border);
+}
+
+/* Experience */
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    border-left: 2px solid var(--border);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.highlight-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.timeline-content ul {
+    padding-left: 20px;
+    color: var(--text-light);
+}
+
+.timeline-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Workflow */
+.workflow-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.step span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    line-height: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.cap-card {
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cap-card h3 {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.cap-card p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Kotak wadah gambar proyek */
+.project-card .project-img {
+    width: 100%;
+    height: 210px;
+    /* Tinggi ideal kartu */
+    overflow: hidden;
+    background-color: #f1f5f9;
+    /* Latar belakang abu-abu terang yang bersih */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Gambar di dalam proyek: Pas dan UTUH tanpa terpotong */
+.project-card .project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Menjaga seluruh tangkapan layar tampil utuh */
+    display: block;
+    padding: 8px;
+    /* Memberi sedikit jarak agar screenshot tidak menempel ke tepi */
+}
+
+.project-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-tags {
+    margin: 15px 0;
+}
+
+.project-tags span {
+    font-size: 0.75rem;
+    background: #f3f4f6;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+/* Contact */
+.contact-lead {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.contact-details {
+    margin-bottom: 40px;
+}
+
+.contact-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Background / Edu */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.bg-card {
+    background: var(--bg-light);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.sub-exp {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cert-list {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Back to top */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s all ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto 40px;
+    }
+
+    .capability-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .workflow-steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
